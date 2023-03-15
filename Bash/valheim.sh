@@ -38,7 +38,7 @@ services:
       - 2458:2458/udp
     environment:
       - PORT=2456
-      - NAME="MyAWSGamingServer"
+      - NAME="PapaBearsServer"
       - WORLD="Dedicated"
       - PASSWORD='"$VHPW"'
       - TZ=Europe/London
