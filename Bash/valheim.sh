@@ -25,6 +25,7 @@ services:
       - 25565:25565
     environment:
       EULA: "TRUE"
+      SEED: 22062004
     tty: true
     stdin_open: true >> docker-compose.yml'
 echo "@reboot root (cd /usr/games/serverconfig/ && docker-compose up)" > /etc/cron.d/awsgameserver
