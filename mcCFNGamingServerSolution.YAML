@@ -242,7 +242,7 @@ Resources:
       KeyName: !Ref KeyName
       Tags:
         - Key: Name
-          Value: Cloudformation MC server 2
+          Value: Cloudformation MC server
         - Key: !Ref IdTagName
           Value: !Ref IdTagValue
         - Key: domain
@@ -1215,7 +1215,9 @@ Resources:
   mcLambdaSourceFilesS3:
     Type: AWS::S3::Bucket
     Properties: 
-      AccessControl: Private
+      OwnershipControls:
+        Rules:
+          - ObjectOwnership: BucketOwnerPreferred
       PublicAccessBlockConfiguration: 
           BlockPublicAcls: True
           BlockPublicPolicy: True
@@ -1228,7 +1230,9 @@ Resources:
   mcS3Bucket:
     Type: AWS::S3::Bucket
     Properties: 
-      AccessControl: Private
+      OwnershipControls:
+        Rules:
+          - ObjectOwnership: BucketOwnerPreferred
       PublicAccessBlockConfiguration: 
           BlockPublicAcls: True
           BlockPublicPolicy: True
@@ -1258,6 +1262,9 @@ Resources:
   mcLoggingBucket:
     Type: AWS::S3::Bucket
     Properties: 
+      OwnershipControls:
+        Rules:
+          - ObjectOwnership: BucketOwnerPreferred
       BucketEncryption:
         ServerSideEncryptionConfiguration:
           - ServerSideEncryptionByDefault:
@@ -1268,7 +1275,6 @@ Resources:
         BlockPublicPolicy: True
         IgnorePublicAcls: True
         RestrictPublicBuckets: True
-      AccessControl: LogDeliveryWrite
 
   mcOriginAccessId:
     Type: AWS::CloudFront::CloudFrontOriginAccessIdentity

@@ -24,7 +24,7 @@ services:
     ports:
       - 25565:25565
     environment:
-      EULA: "TRUE"
+      EULA: \"TRUE\"
       SEED: 22062004
     tty: true
     stdin_open: true >> docker-compose.yml'
